@@ -3,23 +3,10 @@ use byteorder::{BigEndian, ReadBytesExt};
 
 const LIMIT_ITEM_SIZE: u32 = 400_000;
 
-// 01042022
-pub struct Timestamp(String);
-
 pub enum ColumnType {
     U32,
     Float32,
     Text,
-}
-
-impl ColumnType {
-    pub fn size(&self) -> u16 {
-        match self {
-            ColumnType::U32 => 4,
-            ColumnType::Float32 => 4,
-            ColumnType::Text => 40
-        }
-    }
 }
 
 pub struct Column {
